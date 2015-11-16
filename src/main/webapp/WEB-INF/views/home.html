@@ -6,7 +6,32 @@
 </head>
 <body>
 
-<p>HOLA PRIMERA WEB THYMELEAF</p>
+<p>HOLA PRIMERA WEB THYMELEAFFF</p>
+
+<form action="#" th:action="@{/}" th:object="${TweetEntity}" method="post">
+    	<input type="text"  name="usuario" />
+    	<input type="text" name="texto" />
+     	<input type="submit" />
+</form>
+
+
+
+<table>
+<thead>
+<tr>
+	<th>Usuario</th>
+	<th>Tweet</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="tw : ${tweets}">
+    <td th:text="${tw.usuario}"></td>
+    <td th:text="${tw.texto}"></td>
+</tr>
+</tbody>
+</table>
+
+
 
 </body>
 </html>
