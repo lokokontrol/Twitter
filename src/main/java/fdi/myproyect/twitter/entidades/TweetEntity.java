@@ -6,6 +6,11 @@ public class TweetEntity {
 	String usuario;
 	String texto;
 	
+	public TweetEntity()
+	{
+		
+	}
+	
 	public TweetEntity(String usuario, String texto)
 	{
 		this.usuario = usuario;
