@@ -5,43 +5,32 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import fdi.myproyect.twitter.entidades.TweetEntity;
 import fdi.myproyect.twitter.servicioAplicacion.TwitterSA;
-
+import fdi.myproyect.twitter.servicioAplicacion.UsuarioSA;
 
 @Controller
-public class TwitterController {
-	
-	TwitterSA servicio ;
+public class RegistroController {
+
+	UsuarioSA servicio ;
 	
 	@Autowired
-	public TwitterController(TwitterSA servicio) {
+	public RegistroController(UsuarioSA servicio)
+	{
 		this.servicio = servicio;
 	}
 	
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home() {
+	@RequestMapping(value = "/registro", method = RequestMethod.GET)
+	public ModelAndView registro() {
 		
 		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("tweets", servicio.getAllTweets());
 		
-		ModelAndView view = new ModelAndView("home",model) ;
+		ModelAndView view = new ModelAndView("registro",model) ;
 						
 		return view;	
 		
 	}
-	
-	@RequestMapping(value="/", method = RequestMethod.POST)
-	String add(TweetEntity tweet){			
-		servicio.addTweet(tweet);
-		return "redirect:/"; // vuelve a entrar home() de arriba
-	}		
-	
-
 }
