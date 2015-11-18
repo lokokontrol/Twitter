@@ -7,21 +7,22 @@
 <body>
 
 <h1>
-	Twitter FDI  
+	Login 
 </h1>
 
-<form action="#" th:action="@{/}" th:object="${TweetEntity}" method="POST">
+<form action="#" th:action="@{/}" th:object="${UsuarioEntity}" method="POST">
 
-	<label id="" > Tweet :</label>
-	<input type="text" name="texto" /> 
-	<input type="submit" />
+	<label id="" > Username:</label>
+	<input type="text" name="username" /> 	
+	<br />
+	<br />
+	<label id="" > Password:</label>
+	<input type="text" name="password" /> 	
+	<br />
+	<br />
 		
+	<input type="submit" value="Entrar" />		
 </form>
-
-
-<li th:each="feat : ${tweets}">
-	<p  th:text="${feat.texto}"  />				
-</li>
 
 
 </body>
