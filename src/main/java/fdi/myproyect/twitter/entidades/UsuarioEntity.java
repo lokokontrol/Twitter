@@ -49,7 +49,6 @@ public class UsuarioEntity {
 	public void setLogin(Boolean login) {
 		this.login = login;
 	}
-
 	
 	
 	
