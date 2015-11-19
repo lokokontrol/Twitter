@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>
+	Twitter FDI  
+</h1>
+
+<form action="#" th:action="@{/paginaTwitter}" th:object="${TweetEntity}" method="POST">
+
+	<label id="" > Tweet :</label>
+	<input type="text" name="texto" /> 
+	<input type="submit" value= "Enviar Tweet"/>
+		
+</form>
+
+<h3>
+	Lista de tweets recientes
+</h3>
+
+<table>
+<thead>
+<tr>
+	<th>Usuario</th>
+	<th>Tweet</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="tw : ${tweets}">
+    <td th:text="${tw.texto}"></td>
+</tr>
+</tbody>
+</table>
+
+
+</body>
+</html>
