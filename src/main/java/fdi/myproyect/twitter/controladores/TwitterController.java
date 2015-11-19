@@ -28,6 +28,7 @@ public class TwitterController {
 		
 		model.put("tweets", servicio.getAllTweets());
 		
+		
 		ModelAndView view = new ModelAndView("paginaTwitter", model);
 
 		return view;
