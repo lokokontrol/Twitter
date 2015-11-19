@@ -18,9 +18,6 @@
 		
 </form>
 
-<h3>
-	Lista de tweets recientes
-</h3>
 
 <table>
 <thead>
@@ -38,7 +35,11 @@
 </tbody>
 </table>
 
-<a href="/desconectar">Desconectar </a>
+<form action="#" th:action="@{/desconectar}" method="POST">
+
+	<input type="submit" value= "Desconectar"/>
+		
+</form>
 
 
 </body>

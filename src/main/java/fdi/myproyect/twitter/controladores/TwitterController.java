@@ -53,8 +53,6 @@ public class TwitterController {
 		
 		while(it.hasNext()){
 			UsuarioEntity usuarioAux = it.next();
-			System.out.println(usuarioAux.getPassword());
-			System.out.println(usuarioAux.getLogin());
 			if(usuarioAux.getLogin() == true)
 				tweet.setUsuario(usuarioAux);
 		}
