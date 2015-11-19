@@ -25,19 +25,20 @@ public class TwitterController {
 	}
 	
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/twitter2", method = RequestMethod.GET)
 	public ModelAndView home() {
 		
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("tweets", servicio.getAllTweets());
 		
-		ModelAndView view = new ModelAndView("home",model) ;
+		// Redireccionamos a la vista que queremos. Ej: "Home"
+		ModelAndView view = new ModelAndView("twitter2",model) ;
 						
 		return view;	
 		
 	}
 	
-	@RequestMapping(value="/", method = RequestMethod.POST)
+	@RequestMapping(value="/twitter2", method = RequestMethod.POST)
 	String add(TweetEntity tweet){			
 		servicio.addTweet(tweet);
 		return "redirect:/"; // vuelve a entrar home() de arriba
