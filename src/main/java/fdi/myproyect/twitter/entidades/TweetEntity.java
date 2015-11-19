@@ -6,7 +6,14 @@ public class TweetEntity {
 	String usuario;
 	String texto;
 	
+<<<<<<< HEAD
 	public TweetEntity(){}
+=======
+	public TweetEntity()
+	{
+		
+	}
+>>>>>>> Rico/Desarrollo
 	
 	public TweetEntity(String usuario, String texto)
 	{

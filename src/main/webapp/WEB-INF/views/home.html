@@ -6,6 +6,7 @@
 </head>
 <body>
 
+
 <p>HOLA PRIMERA WEB THYMELEAFFF</p>
 
 <form action="#" th:action="@{/}" th:object="${TweetEntity}" method="post">
@@ -30,6 +31,25 @@
 </tr>
 </tbody>
 </table>
+
+
+<h1>
+	Login 
+</h1>
+
+<form action="#" th:action="@{/}" th:object="${UsuarioEntity}" method="POST">
+
+	<label id="" > Username:</label>
+	<input type="text" name="username" /> 	
+	<br />
+	<br />
+	<label id="" > Password:</label>
+	<input type="text" name="password" /> 	
+	<br />
+	<br />
+		
+	<input type="submit" value="Entrar" />		
+</form>
 
 
 
