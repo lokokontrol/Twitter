@@ -16,6 +16,7 @@ public class UsuarioEntity {
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		
 	}
 	
 	public String getUsername() {
