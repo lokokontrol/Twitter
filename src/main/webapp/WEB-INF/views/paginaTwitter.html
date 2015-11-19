@@ -13,7 +13,7 @@
 <form action="#" th:action="@{/paginaTwitter}" th:object="${TweetEntity}" method="POST">
 
 	<label id="" > Tweet :</label>
-	<input type="text" name="texto" /> 
+	<input type="text" name="texto" />
 	<input type="submit" value= "Enviar Tweet"/>
 		
 </form>
@@ -30,11 +30,15 @@
 </tr>
 </thead>
 <tbody>
+
 <tr th:each="tw : ${tweets}">
+    <td th:text="${tw.usuario.username}"></td>
     <td th:text="${tw.texto}"></td>
 </tr>
 </tbody>
 </table>
+
+<a href="/desconectar">Desconectar </a>
 
 
 </body>

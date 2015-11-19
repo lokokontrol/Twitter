@@ -1,5 +1,8 @@
 package fdi.myproyect.twitter.controladores;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,7 @@ public class UsuarioController {
 	public UsuarioController(UsuarioSA servicio)
 	{
 		this.servicio = servicio;
+		
 	}
 		
 	@RequestMapping(value="/", method = RequestMethod.POST)
@@ -32,9 +36,11 @@ public class UsuarioController {
 	public ModelAndView home() {
 		
 		ModelAndView view = new ModelAndView("home", null);
+			
+		return view;
 
 		
-		return view;
+		
 	}
 	
 }

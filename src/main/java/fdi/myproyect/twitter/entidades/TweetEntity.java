@@ -3,23 +3,23 @@ package fdi.myproyect.twitter.entidades;
 
 public class TweetEntity {
 	
-	String usuario;
+	UsuarioEntity usuario;
 	String texto;
 	
 
 	public TweetEntity(){};
 
 
-	public TweetEntity(String usuario, String texto)
+	public TweetEntity(UsuarioEntity usuario, String texto)
 	{
 		this.usuario = usuario;
 		this.texto = texto;
 	}	
 	
-	public String getUsuario() {
+	public UsuarioEntity getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(String usuario) {
+	public void setUsuario(UsuarioEntity usuario) {
 		this.usuario = usuario;
 	}
 	public String getTexto() {
