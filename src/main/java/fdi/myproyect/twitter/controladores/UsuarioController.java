@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +30,27 @@ public class UsuarioController {
 	}
 		
 	@RequestMapping(value="/", method = RequestMethod.POST)
-	String add(UsuarioEntity usuario){
-		servicio.addUsuario(usuario);
+	String login(UsuarioEntity usuario){
 		
-		return "redirect:/paginaTwitter";
+		 ArrayList<UsuarioEntity> arrayUsu = servicio.getAllUsuario();
+			
+			Iterator<UsuarioEntity> it = arrayUsu.iterator();
+		//	boolean encontrado =false;
+			while(it.hasNext()){
+				UsuarioEntity usuarioAux = it.next();
+				
+				if (usuario.getUsername().equals(usuarioAux.getUsername()))
+					if(usuario.getPassword().equals(usuarioAux.getPassword())){
+						usuarioAux.setLogin(true);
+						//encontrado = true;
+					}
+			
+			}
+		/*	if (encontrado == false){
+				JOptionPane.showMessageDialog(null, "Datos incorrectos, vuelve a loguearte");
+				return "redirect:/";
+			}else*/
+				return "redirect:/paginaTwitter";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -63,6 +82,16 @@ public class UsuarioController {
 		
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/registrar", method = RequestMethod.POST)
+	public String registrar(UsuarioEntity usuario) {	
+		usuario.setLogin(true);
+		servicio.addUsuario(usuario);
+		
+		return "redirect:/paginaTwitter";
+		
+		
 	}
 	
 	
