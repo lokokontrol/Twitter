@@ -2,31 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
+<title>Twitter FDI</title>
  <link rel="stylesheet" href="/twitter/src/main/webapp/WEB-INF/css/boostrap"/>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
-<body>
+<body class="container">
 
 
-<p>HOLA PRIMERA WEB THYMELEAFFF</p>
+<header class="jumbotron">HOLA PRIMERA WEB THYMELEAF</header>
 
 
-<h1>
+<h1 class="h1">
 	Login 
 </h1>
 
-<form action="#" th:action="@{/}" th:object="${UsuarioEntity}" method="POST">
-
- <label id="" > Username:</label>
- <input type="text" name="username" />  
+<form role="form" action="#" th:action="@{/}" th:object="${UsuarioEntity}" method="POST">
+<div class="form-group">
+ <label class="label-primary" id="" > Username:</label>
+ <input type="text" class="form-control" name="username" />
+ </div>  
  <br />
  <br />
- <label id="" > Password:</label>
- <input type="text" name="password" />  
+ <label class="label-primary" id="" > Password:</label>
+ <input  type="text" class="form-control" name="password" />  
  <br />
  <br />
   
- <input type="submit" value="Entrar" />  
+ <input type="submit" class ="btn-success" value="Entrar" />  
 </form>
 
 
