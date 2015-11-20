@@ -13,8 +13,14 @@
 
 
 <h1 class="h1">
-	Login 
+	Login / Registro 
 </h1>
+
+<br></br>
+<br></br>
+
+<div class="col-md-6">
+<div class="alert alert-info"> LOGUEAR </div>
 
 <form role="form" action="#" th:action="@{/}" th:object="${UsuarioEntity}" method="POST">
 <div class="form-group">
@@ -27,11 +33,31 @@
  <input  type="text" class="form-control" name="password" />  
  <br />
  <br />
-  
  <input type="submit" class ="btn-success" value="Entrar" />  
 </form>
+<br></br>
+<br></br>
+</div>
 
 
+<div class="col-md-6">
+<div class="alert alert-info"> REGISTRAR </div>
+
+<form role="form" action="#" th:action="@{/registrar}" th:object="${UsuarioEntity}" method="POST">
+<div class="form-group">
+ <label class="label-primary" id="" > Username:</label>
+ <input type="text" class="form-control" name="username" />
+ </div>  
+ <br />
+ <br />
+ <label class="label-primary" id="" > Password:</label>
+ <input  type="text" class="form-control" name="password" />  
+ <br />
+ <br />
+  
+ <input type="submit" class ="btn-success" value="Registrar" />  
+</form>
+</div>
 
 </body>
 </html>
