@@ -63,10 +63,6 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/desconectar", method = RequestMethod.POST)
 	public String desconectar(UsuarioEntity usuario) {	
-	/*	System.out.println(usuario.getUsername());
-		System.out.println(" ");
-		System.out.println(usuario.getLogin());
-		usuario.setLogin( false);*/
 	
        ArrayList<UsuarioEntity> arrayUsu = servicio.getAllUsuario();
 		
