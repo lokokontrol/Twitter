@@ -17,7 +17,7 @@ public class UsuarioRepositorio {
 	}
 
 	public ArrayList<UsuarioEntity> getListaUsuarios() {
-		return listaUsuarios;
+		return this.listaUsuarios;
 	}
 	
 	

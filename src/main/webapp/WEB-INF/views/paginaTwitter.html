@@ -3,26 +3,26 @@
 <head>
 <meta charset="ISO-8859-1"/>
 <title>Insert title here</title>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+
 </head>
-<body>
+<body class="container">
 
 <h1>
 	Twitter FDI  
 </h1>
 
-<form action="#" th:action="@{/paginaTwitter}" th:object="${TweetEntity}" method="POST">
-
-	<label id="" > Tweet :</label>
-	<input type="text" name="texto" /> 
-	<input type="submit" value= "Enviar Tweet"/>
+<form role="form" action="#" th:action="@{/paginaTwitter}" th:object="${TweetEntity}" method="POST">
+<div class="form-group">
+	<label  class="label-primary" id="" > Tweet :</label>
+	<input class="form-control" type="text" name="texto" />
+	</div>
+	<input type="submit"  class ="btn-success" value= "Enviar Tweet"/>
 		
 </form>
 
-<h3>
-	Lista de tweets recientes
-</h3>
 
-<table>
+<table class="table table-hover">
 <thead>
 <tr>
 	<th>Usuario</th>
@@ -30,11 +30,19 @@
 </tr>
 </thead>
 <tbody>
+
 <tr th:each="tw : ${tweets}">
+    <td th:text="${tw.usuario.username}"></td>
     <td th:text="${tw.texto}"></td>
 </tr>
 </tbody>
 </table>
+
+<form action="#" th:action="@{/desconectar}" method="POST">
+
+	<input type="submit"  class ="btn-warning" value= "Desconectar"/>
+		
+</form>
 
 
 </body>

@@ -1,5 +1,10 @@
 package fdi.myproyect.twitter.controladores;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +24,7 @@ public class UsuarioController {
 	public UsuarioController(UsuarioSA servicio)
 	{
 		this.servicio = servicio;
+		
 	}
 		
 	@RequestMapping(value="/", method = RequestMethod.POST)
@@ -32,9 +38,33 @@ public class UsuarioController {
 	public ModelAndView home() {
 		
 		ModelAndView view = new ModelAndView("home", null);
-
-		
+			
 		return view;
 	}
+	
+	@RequestMapping(value = "/desconectar", method = RequestMethod.POST)
+	public String desconectar(UsuarioEntity usuario) {	
+	/*	System.out.println(usuario.getUsername());
+		System.out.println(" ");
+		System.out.println(usuario.getLogin());
+		usuario.setLogin( false);*/
+	
+       ArrayList<UsuarioEntity> arrayUsu = servicio.getAllUsuario();
+		
+		Iterator<UsuarioEntity> it = arrayUsu.iterator();
+		
+		while(it.hasNext()){
+			UsuarioEntity usuarioAux = it.next();
+			System.out.println(usuarioAux.getUsername());
+			System.out.println(usuarioAux.getLogin());
+			if(usuarioAux.getLogin() == true)
+				usuarioAux.setLogin(false);
+		}
+		
+		
+		return "redirect:/";
+	}
+	
+	
 	
 }
