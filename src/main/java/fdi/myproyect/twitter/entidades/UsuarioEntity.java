@@ -5,7 +5,7 @@ public class UsuarioEntity {
 	String username;
 	String password;
 	
-	Boolean login = true;
+	Boolean login;
 	
 	public UsuarioEntity(){
 		
@@ -15,7 +15,7 @@ public class UsuarioEntity {
 	{
 		this.username = username;
 		this.password = password;
-		this.login = true;
+		
 		
 	}
 	
