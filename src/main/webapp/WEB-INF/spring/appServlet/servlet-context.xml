@@ -71,6 +71,16 @@
 			</beans:props>
 		</beans:property>
 	</beans:bean>
+
+
+	<beans:bean id="UsuarioRepositorio" class="fdi.myproyect.twitter.repositorios.UsuarioRepositorio">
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	
+
+<context:component-scan base-package="fdi.myproyect.twitter" />
+	
+	
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
