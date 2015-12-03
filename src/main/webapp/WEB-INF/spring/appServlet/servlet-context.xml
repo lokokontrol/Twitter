@@ -73,11 +73,14 @@
 	</beans:bean>
 
 
-	<beans:bean id="UsuarioRepositorio" class="fdi.myproyect.twitter.repositorios.UsuarioRepositorio">
+	<!-- <beans:bean id="UsuarioRepositorio" class="fdi.myproyect.twitter.repositorios.UsuarioRepositorio">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 	
-
+	<beans:bean id="personService" class="fdi.myproyect.twitter.servicioAplicacion.UsuarioSA">
+		<beans:property name="UsuarioRepositorio" ref="UsuarioRepositorio"></beans:property>
+	</beans:bean>
+ -->
 <context:component-scan base-package="fdi.myproyect.twitter" />
 	
 	

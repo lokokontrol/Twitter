@@ -19,9 +19,14 @@ public class UsuarioRepositorio {
 	private SessionFactory sessionFactory;
 	
 	@Autowired
+	public UsuarioRepositorio(SessionFactory sf){
+		this.sessionFactory = sf;
+		
+	}
 	public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
+	
 	@Transactional
 	public void addUsuario(UsuarioEntity usuario)
 	{
