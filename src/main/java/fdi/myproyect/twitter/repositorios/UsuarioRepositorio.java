@@ -1,20 +1,23 @@
 package fdi.myproyect.twitter.repositorios;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 
 import fdi.myproyect.twitter.entidades.UsuarioEntity;
 
 @Repository
 public class UsuarioRepositorio {
 
-	ArrayList<UsuarioEntity> listaUsuarios = new ArrayList<UsuarioEntity>();
+	List<UsuarioEntity> listaUsuarios;
 	
 	private SessionFactory sessionFactory;
 	
@@ -30,11 +33,18 @@ public class UsuarioRepositorio {
 	@Transactional
 	public void addUsuario(UsuarioEntity usuario)
 	{
-		Session session =sessionFactory.openSession();
-		session.persist(usuario);
+		Session session =sessionFactory.getCurrentSession();
+		session.save(usuario);
+		
 	}
 
-	public ArrayList<UsuarioEntity> getListaUsuarios() {
+	@SuppressWarnings("unchecked")
+	public List<UsuarioEntity> getListaUsuarios() {
+		Session session =sessionFactory.openSession();
+		//this.listaUsuarios = session.createSQLQuery("select * from usuario").list();
+		this.listaUsuarios = (List<UsuarioEntity>) session.createQuery("from usuario").list();
+
+		//session.close();
 		return this.listaUsuarios;
 	}
 	

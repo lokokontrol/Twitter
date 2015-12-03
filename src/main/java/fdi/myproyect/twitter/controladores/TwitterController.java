@@ -3,6 +3,7 @@ package fdi.myproyect.twitter.controladores;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,16 +49,16 @@ public class TwitterController {
 	String add(TweetEntity tweet){
 		
 		
-		ArrayList<UsuarioEntity> arrayUsu = servicioUsuario.getAllUsuario();
+		List<UsuarioEntity> arrayUsu = servicioUsuario.getAllUsuario();
 		
 		Iterator<UsuarioEntity> it = arrayUsu.iterator();
 		
 		while(it.hasNext()){
+		//	Object aux = it.next();
 			UsuarioEntity usuarioAux = it.next();
 			if(usuarioAux.getLogin() == true)
 				tweet.setUsuario(usuarioAux);
 		}
-		
 		servicio.addTweet(tweet);
 		
 		return "redirect:/paginaTwitter";
