@@ -10,32 +10,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Usuario")
+@Table(name="Usuarios")
 public class UsuarioEntity implements Serializable {
 
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int id;
+	private int id;
+	
 	String username;
-	String password;
+	String password;	
 	
 	Boolean login;
+	
 	
 	public UsuarioEntity(){
 		
 	}
 	
-	public UsuarioEntity(int id,String username, String password, boolean login){
+	public UsuarioEntity(int id,String username, String password, boolean login)
+	{
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.login = login;
+		
 	}
 	
 	public UsuarioEntity(String username, String password)
@@ -44,13 +43,7 @@ public class UsuarioEntity implements Serializable {
 		this.password = password;
 	}
 	
-	public void setUsuarioEntity(int id,String username, String password, boolean login){
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.login = login;
-	}
-	
+		
 	public String getUsername() {
 		return username;
 	}
