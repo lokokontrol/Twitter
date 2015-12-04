@@ -83,10 +83,17 @@
  
 <context:component-scan base-package="fdi.myproyect.twitter" />
 	-->
+
+	
+	<beans:bean id="personService" class="fdi.myproyect.twitter.servicioAplicacion.UsuarioSA">
+		<beans:property name="UsuarioRepositorio" ref="UsuarioRepositorio"></beans:property>
+	</beans:bean>
+ 
+<context:component-scan base-package="fdi.myproyect.twitter" />
+	-->
 	
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
 	
 	
 	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
