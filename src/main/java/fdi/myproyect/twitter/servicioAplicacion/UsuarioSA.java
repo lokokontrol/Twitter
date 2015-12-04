@@ -1,7 +1,8 @@
 package fdi.myproyect.twitter.servicioAplicacion;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import fdi.myproyect.twitter.entidades.UsuarioEntity;
 import fdi.myproyect.twitter.repositorios.UsuarioRepositorio;
 
 @Service
+@Transactional
 public class UsuarioSA {
 	
 	UsuarioRepositorio repositorio;

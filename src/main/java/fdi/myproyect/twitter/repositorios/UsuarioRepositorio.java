@@ -30,7 +30,7 @@ public class UsuarioRepositorio {
         this.sessionFactory = sessionFactory;
     }
 	
-	@Transactional
+	
 	public void addUsuario(UsuarioEntity usuario)
 	{
 		Session session =sessionFactory.getCurrentSession();
@@ -42,7 +42,7 @@ public class UsuarioRepositorio {
 	public List<UsuarioEntity> getListaUsuarios() {
 		Session session =sessionFactory.openSession();
 		//this.listaUsuarios = session.createSQLQuery("select * from usuario").list();
-		this.listaUsuarios = (List<UsuarioEntity>) session.createQuery("from usuario").list();
+		this.listaUsuarios = (List<UsuarioEntity>) session.createQuery("from UsuarioEntity").list();
 
 		//session.close();
 		return this.listaUsuarios;
