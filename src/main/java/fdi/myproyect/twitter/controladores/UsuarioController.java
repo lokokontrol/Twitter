@@ -1,7 +1,5 @@
 package fdi.myproyect.twitter.controladores;
 
-import java.util.ArrayList;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -61,6 +59,7 @@ public class UsuarioController {
 	@RequestMapping(value = "/desconectar", method = RequestMethod.POST)
 	public String desconectar(UsuarioEntity usuario) {	
 	
+
        List<UsuarioEntity> arrayUsu = servicio.getAllUsuario();
 		
 		Iterator<UsuarioEntity> it = arrayUsu.iterator();
