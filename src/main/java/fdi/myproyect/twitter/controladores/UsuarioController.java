@@ -41,11 +41,8 @@ public class UsuarioController {
 					}
 			
 			}
-		/*	if (encontrado == false){
-				JOptionPane.showMessageDialog(null, "Datos incorrectos, vuelve a loguearte");
-				return "redirect:/";
-			}else*/
-				return "redirect:/paginaTwitter";
+			
+			return "redirect:/paginaTwitter";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
