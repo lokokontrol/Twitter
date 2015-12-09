@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -12,7 +15,6 @@ import org.hibernate.SessionFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 
 import fdi.myproyect.twitter.entidades.UsuarioEntity;
 
@@ -55,9 +57,15 @@ public class UsuarioRepositorio {
 		
 	//	this.listaUsuarios = (List<UsuarioEntity>) session.createQuery("from UsuarioEntity").list();
 		
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+
+		CriteriaQuery<UsuarioEntity> q = cb.createQuery(UsuarioEntity.class);
+		Root<UsuarioEntity> c = q.from(UsuarioEntity.class);
+
+		return em.createQuery(q).getResultList();
 		
 		
-		return this.listaUsuarios;
+		//return this.listaUsuarios;
 	}
 	
 	
