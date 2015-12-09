@@ -3,17 +3,17 @@ package fdi.myproyect.twitter.repositorios;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-<<<<<<< HEAD
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-=======
+
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
->>>>>>> Rico/desarrolloHibernate
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,11 +29,8 @@ public class UsuarioRepositorio {
 	List<UsuarioEntity> listaUsuarios;
 	
 	//private SessionFactory sessionFactory;
-<<<<<<< HEAD
-	@PersistenceContext
-	private EntityManager em;
-=======
->>>>>>> Rico/desarrolloHibernate
+
+
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -53,21 +50,18 @@ public class UsuarioRepositorio {
 		//Session session =sessionFactory.getCurrentSession();
 		//session.save(usuario);
 		
-<<<<<<< HEAD
+
 		//EntityManagerFactory ef = Persistence.createEntityManagerFactory("UsuarioSA");
 		
 		//EntityManager em = ef.createEntityManager();
 		
 		em.persist(usuario);
 		
-=======
-		em.persist(usuario);
->>>>>>> Rico/desarrolloHibernate
-		
+
 	}
 
 	public List<UsuarioEntity> getListaUsuarios() {
-<<<<<<< HEAD
+
 	/*	/*Session session =sessionFactory.openSession();
 		this.listaUsuarios = (List<UsuarioEntity>) session.createQuery("from UsuarioEntity").list();	
 		*/
@@ -77,18 +71,7 @@ public class UsuarioRepositorio {
 		@SuppressWarnings("unused")
 		Root<UsuarioEntity> c = q.from(UsuarioEntity.class);
 		listaUsuarios = em.createQuery(q).getResultList();  
-=======
-		//Session session =sessionFactory.openSession();
-		//this.listaUsuarios = session.createSQLQuery("select * from usuario").list();
-		//this.listaUsuarios = (List<UsuarioEntity>) session.createQuery("from UsuarioEntity").list();
-		
-		//session.close();
-		
-	//	this.listaUsuarios = (List<UsuarioEntity>) session.createQuery("from UsuarioEntity").list();
-		
-		
->>>>>>> Rico/desarrolloHibernate
-		
+
 		return this.listaUsuarios;
 		
 	}

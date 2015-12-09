@@ -44,7 +44,7 @@ public class TwitterController {
 	}
 
 	
-	/*@RequestMapping(value="/paginaTwitter", method = RequestMethod.POST)
+	@RequestMapping(value="/paginaTwitter", method = RequestMethod.POST)
 	String add(TweetEntity tweet){
 		
 		
@@ -61,6 +61,6 @@ public class TwitterController {
 		servicio.addTweet(tweet);
 		
 		return "redirect:/paginaTwitter";
-	}*/
+	}
 	
 }
