@@ -1,7 +1,6 @@
 package fdi.myproyect.twitter.servicioAplicacion;
 
-import java.util.ArrayList;
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ public class TwitterSA {
 		repositorio.addTweet(tweet);
 	}
 	
-	 public  ArrayList<TweetEntity> getAllTweets()
+	 public  List<TweetEntity> getAllTweets()
 	 {
 		 return repositorio.getAllTweets();
 	 }
