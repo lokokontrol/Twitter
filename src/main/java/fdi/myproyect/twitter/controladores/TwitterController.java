@@ -58,6 +58,7 @@ public class TwitterController {
 			if(usuarioAux.getLogin() == true)
 				tweet.setUsuario(usuarioAux);
 		}
+		
 		servicio.addTweet(tweet);
 		
 		return "redirect:/paginaTwitter";
