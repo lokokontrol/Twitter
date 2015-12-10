@@ -32,6 +32,10 @@ public class UsuarioSA {
 		return repositorio.getListaUsuarios();
 	}
 	
+	public void modificarUsuarioLogin(UsuarioEntity usuario){
+		repositorio.modificarUsuarioLogin(usuario);
+	}
+	
 	
 }
 

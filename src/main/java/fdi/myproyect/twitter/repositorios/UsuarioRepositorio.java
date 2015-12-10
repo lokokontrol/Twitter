@@ -47,6 +47,12 @@ public class UsuarioRepositorio {
 		
 		
 	}
+	
+	public void modificarUsuarioLogin(UsuarioEntity usuario){
+		UsuarioEntity usuarioAux = em.find(UsuarioEntity.class, usuario.getId());
+		usuarioAux.setLogin(usuario.getLogin());
+		em.merge(usuarioAux);
+	}
 
 	public List<UsuarioEntity> getListaUsuarios() {
 

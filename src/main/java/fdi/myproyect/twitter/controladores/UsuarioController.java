@@ -37,6 +37,7 @@ public class UsuarioController {
 				if (usuario.getUsername().equals(usuarioAux.getUsername()))
 					if(usuario.getPassword().equals(usuarioAux.getPassword())){
 						usuarioAux.setLogin(true);
+						servicio.modificarUsuarioLogin(usuarioAux);
 						//encontrado = true;
 					}
 			
@@ -65,8 +66,10 @@ public class UsuarioController {
 			UsuarioEntity usuarioAux = it.next();
 			System.out.println(usuarioAux.getUsername());
 			System.out.println(usuarioAux.getLogin());
-			if(usuarioAux.getLogin() == true)
+			if(usuarioAux.getLogin() == true){
 				usuarioAux.setLogin(false);
+				servicio.modificarUsuarioLogin(usuarioAux);
+			}
 		}
 		
 		
