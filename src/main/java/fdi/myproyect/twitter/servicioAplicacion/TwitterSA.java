@@ -2,6 +2,8 @@ package fdi.myproyect.twitter.servicioAplicacion;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import fdi.myproyect.twitter.entidades.TweetEntity;
 import fdi.myproyect.twitter.repositorios.TwitterRepositorio;
 
 @Service
+@Transactional
 public class TwitterSA {
 	
 	TwitterRepositorio repositorio;
