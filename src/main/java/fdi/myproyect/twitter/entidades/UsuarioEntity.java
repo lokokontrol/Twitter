@@ -1,7 +1,20 @@
 package fdi.myproyect.twitter.entidades;
 
-public class UsuarioEntity {
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Usuario")
+public class UsuarioEntity {
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	int id;
 	String username;
 	String password;
 	
@@ -11,12 +24,24 @@ public class UsuarioEntity {
 		
 	}
 	
+	public UsuarioEntity(int id,String username, String password, boolean login){
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.login = login;
+	}
+	
 	public UsuarioEntity(String username, String password)
 	{
 		this.username = username;
 		this.password = password;
-		
-		
+	}
+	
+	public void setUsuarioEntity(int id,String username, String password, boolean login){
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.login = login;
 	}
 	
 	public String getUsername() {
@@ -42,7 +67,13 @@ public class UsuarioEntity {
 	public void setLogin(Boolean login) {
 		this.login = login;
 	}
-	
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 }
