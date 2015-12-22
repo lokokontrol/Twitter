@@ -34,7 +34,7 @@ public class UsuarioRepositorio {
     }
 	*/
 	
-	public void addUsuario(UsuarioEntity usuario)
+	public UsuarioEntity addUsuario(UsuarioEntity usuario)
 	{
 		//Session session =sessionFactory.getCurrentSession();
 		//session.save(usuario);
@@ -43,15 +43,14 @@ public class UsuarioRepositorio {
 		
 		//EntityManager em = ef.createEntityManager();
 		
-			em.merge(usuario);
-		
+			UsuarioEntity usu = em.merge(usuario);
+		return usu;
 		
 	}
 	
 	public void modificarUsuarioLogin(UsuarioEntity usuario){
-		UsuarioEntity usuarioAux = em.find(UsuarioEntity.class, usuario.getId());
-		usuarioAux.setLogin(usuario.getLogin());
-		em.merge(usuarioAux);
+		
+		em.merge(usuario);
 	}
 
 	public List<UsuarioEntity> getListaUsuarios() {
@@ -62,9 +61,9 @@ public class UsuarioRepositorio {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 
 		CriteriaQuery<UsuarioEntity> q = cb.createQuery(UsuarioEntity.class);
+	
 		
-		@SuppressWarnings("unused")
-		Root<UsuarioEntity> c = q.from(UsuarioEntity.class);
+		q.from(UsuarioEntity.class);
 		listaUsuarios = em.createQuery(q).getResultList();  
 
 		return this.listaUsuarios;
