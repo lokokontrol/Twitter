@@ -5,25 +5,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Tweet")
 public class TweetEntity {
-	
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
-	
+	@ManyToOne
 	UsuarioEntity usuario;
-	String texto;	
+	String texto;
+	
 
 	public TweetEntity(){};
 
 
-	public TweetEntity(int id, UsuarioEntity usuario, String texto)
+	public TweetEntity(int id,UsuarioEntity usuario, String texto)
 	{
+	
 		this.id = id;
 		this.usuario = usuario;
 		this.texto = texto;
@@ -42,13 +44,6 @@ public class TweetEntity {
 		this.texto = texto;
 	}
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	
 }
