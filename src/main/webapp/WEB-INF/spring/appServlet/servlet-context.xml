@@ -94,12 +94,10 @@
     <beans:value>fdi.myproyect.twitter.entidades</beans:value>
    </beans:array>
   </beans:property> 
-  <beans:property name="jpaVendorAdapter" ref="jpaVendorAdapter">
-  </beans:property>  
+  <beans:property name="jpaVendorAdapter" ref="jpaVendorAdapter"></beans:property>  
   <beans:property name="jpaProperties">
-   <beans:props>
-    <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
-    </beans:prop>
+  <beans:props>
+    <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</beans:prop>
     <beans:prop key="hibernate.hbm2ddl.auto">create-drop</beans:prop>
     <beans:prop key="hibernate.show_sql">true</beans:prop>
    </beans:props>

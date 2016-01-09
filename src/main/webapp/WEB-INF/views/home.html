@@ -19,7 +19,7 @@
 <br></br>
 <br></br>
 
-<div class="col-md-6">
+<div class="col-md-4">
 <div class="alert alert-info"> LOGUEAR </div>
 
 <form role="form" action="#" th:action="@{/}" th:object="${UsuarioEntity}" method="POST">
@@ -39,8 +39,29 @@
 <br></br>
 </div>
 
+<div class="col-md-4">
+<div class="alert alert-info"> VER TWEETS </div>
 
-<div class="col-md-6">
+
+<table class="table table-hover">
+<thead>
+<tr>
+	<th>Usuario</th>
+</tr>
+</thead>
+<tbody>
+
+<tr th:each="usu : ${usuarios}">
+   <td> <a th:href="@{'/user/{id}' (id=${usu.id})}" th:text="${usu.username}"></a></td>
+</tr>
+</tbody>
+</table>
+<br></br>
+<br></br>
+</div>
+  
+
+<div class="col-md-4">
 <div class="alert alert-info"> REGISTRAR </div>
 
 <form role="form" action="#" th:action="@{/registrar}" th:object="${UsuarioEntity}" method="POST">
