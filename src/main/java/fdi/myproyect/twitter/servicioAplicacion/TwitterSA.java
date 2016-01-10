@@ -33,5 +33,8 @@ public class TwitterSA {
 		 return repositorio.getAllTweets();
 	 }
 	
+	 public List<TweetEntity> getAllTweetsByUser(int id){
+		return this.repositorio.getAllTweetsByUser(id);
+	 }
 
 }

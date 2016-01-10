@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,8 +38,7 @@ public class TwitterController {
 		
 		ModelAndView view = new ModelAndView("paginaTwitter", model);
 		
-		
-			
+	
 		return view;
 	}
 
@@ -62,5 +61,22 @@ public class TwitterController {
 		
 		return "redirect:/paginaTwitter";
 	}
+	
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	public ModelAndView user(@PathVariable(value="id") int id) {
+		
+		Map<String, Object> model = new HashMap<String, Object>();
+		
+		model.put("tweets", servicio.getAllTweetsByUser(id));
+		
+		
+		ModelAndView view = new ModelAndView("tweets", model);
+		
+		
+			
+		return view;
+	}
+
+	
 	
 }
