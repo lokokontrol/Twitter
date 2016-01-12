@@ -1,6 +1,5 @@
 package fdi.myproyect.twitter.entidades;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,13 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Usuario")
-public class UsuarioEntity implements Serializable {
-
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class UsuarioEntity {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

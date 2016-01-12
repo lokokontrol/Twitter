@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body class="container">
+
+<div class="jumbotron">
+	Twitter FDI  
+</div>
+
+
+<table class="table table-hover">
+<thead>
+<tr>
+	<th>Usuario</th>
+	<th>Tweet</th>
+</tr>
+</thead>
+<tbody>
+
+<tr th:each="tw : ${tweets}">
+    <td th:text="${tw.usuario.username}"></td>
+    <td th:text="${tw.texto}"></td>
+</tr>
+</tbody>
+</table>
+
+<form action="#" th:action="@{/}" method="GET">
+
+	<input type="submit"  class ="btn-warning" value= "Home"/>
+		
+</form>
+
+
+</body>
+</html>
