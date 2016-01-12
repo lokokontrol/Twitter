@@ -15,17 +15,14 @@ import fdi.myproyect.twitter.servicioAplicacion.UsuarioSA;
 public class TwitterController {
 	
 	TwitterSA servicioTwitter ;
-	UsuarioSA servicioUsuario;
 	
 	@Autowired
 	public TwitterController(TwitterSA servicioTwitter,UsuarioSA servicioUsuario) {
 		this.servicioTwitter = servicioTwitter;
-		this.servicioUsuario = servicioUsuario;
 	}
 	
 	@RequestMapping(value = "/paginaTwitter", method = RequestMethod.GET)
 	public ModelAndView paginaTwitter() {
-	
 		return servicioTwitter.getAllTweets();
 	}
 

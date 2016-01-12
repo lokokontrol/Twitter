@@ -31,13 +31,11 @@ public class TwitterSA {
 	
 	public void addTweet(TweetEntity tweet){
 		
-		
 		List<UsuarioEntity> arrayUsu = servicioUsuario.getAllUsuario();
 		
 		Iterator<UsuarioEntity> it = arrayUsu.iterator();
 		
 		while(it.hasNext()){
-		//	Object aux = it.next();
 			UsuarioEntity usuarioAux = it.next();
 			if(usuarioAux.getLogin() == true)
 				tweet.setUsuario(usuarioAux);
@@ -46,25 +44,22 @@ public class TwitterSA {
 		repositorio.addTweet(tweet);
 	}
 	
-	 public  ModelAndView getAllTweets()
-	 {
+	 public  ModelAndView getAllTweets(){
 		 
 		 Map<String, Object> model = new HashMap<String, Object>();
 			
-			model.put("tweets", this.repositorio.getAllTweets());
+		 model.put("tweets", this.repositorio.getAllTweets());
 			
-			ModelAndView view = new ModelAndView("paginaTwitter", model);
+	     ModelAndView view = new ModelAndView("paginaTwitter", model);
 			
-			return view;
+		 return view;
 	 }
 	
 	 public ModelAndView getAllTweetsByUser(int id){
-		//return this.repositorio.getAllTweetsByUser(id);
 		
 		Map<String, Object> model = new HashMap<String, Object>();
 		
 		model.put("tweets", this.repositorio.getAllTweetsByUser(id));
-		
 		
 		ModelAndView view = new ModelAndView("tweets", model);
 		
