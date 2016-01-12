@@ -3,12 +3,10 @@ package fdi.myproyect.twitter.repositorios;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import javax.transaction.Transaction;
+
 
 import org.springframework.stereotype.Repository;
 

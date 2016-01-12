@@ -14,24 +14,25 @@ import org.springframework.web.servlet.ModelAndView;
 import fdi.myproyect.twitter.entidades.TweetEntity;
 import fdi.myproyect.twitter.entidades.UsuarioEntity;
 import fdi.myproyect.twitter.repositorios.TwitterRepositorio;
+import fdi.myproyect.twitter.repositorios.UsuarioRepositorio;
 
 @Service
 @Transactional
 public class TwitterSA {
 	
-	TwitterRepositorio repositorio;
-	UsuarioSA servicioUsuario;
+	TwitterRepositorio repositorioTwitter;
+	UsuarioRepositorio repositorioUsuario;
 	
 	@Autowired
-	public TwitterSA(TwitterRepositorio repositorio,UsuarioSA servicioUsuario)
+	public TwitterSA(TwitterRepositorio repositorio,UsuarioRepositorio repositorioUsuario)
 	{
-		this.repositorio = repositorio;
-		this.servicioUsuario = servicioUsuario;
+		this.repositorioTwitter = repositorio;
+		this.repositorioUsuario = repositorioUsuario;
 	}
 	
 	public void addTweet(TweetEntity tweet){
 		
-		List<UsuarioEntity> arrayUsu = servicioUsuario.getAllUsuario();
+		List<UsuarioEntity> arrayUsu = repositorioUsuario.getListaUsuarios();
 		
 		Iterator<UsuarioEntity> it = arrayUsu.iterator();
 		
@@ -41,14 +42,14 @@ public class TwitterSA {
 				tweet.setUsuario(usuarioAux);
 		}
 		
-		repositorio.addTweet(tweet);
+		repositorioTwitter.addTweet(tweet);
 	}
 	
 	 public  ModelAndView getAllTweets(){
 		 
 		 Map<String, Object> model = new HashMap<String, Object>();
 			
-		 model.put("tweets", this.repositorio.getAllTweets());
+		 model.put("tweets", this.repositorioTwitter.getAllTweets());
 			
 	     ModelAndView view = new ModelAndView("paginaTwitter", model);
 			
@@ -59,7 +60,7 @@ public class TwitterSA {
 		
 		Map<String, Object> model = new HashMap<String, Object>();
 		
-		model.put("tweets", this.repositorio.getAllTweetsByUser(id));
+		model.put("tweets", this.repositorioTwitter.getAllTweetsByUser(id));
 		
 		ModelAndView view = new ModelAndView("tweets", model);
 		
