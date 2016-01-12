@@ -6,14 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-<<<<<<< HEAD
+
 import javax.persistence.criteria.Root;
 import javax.transaction.Transaction;
 import javax.transaction.Transactional;
-=======
 
-
->>>>>>> Nieto/Desarrollo
 import org.springframework.stereotype.Repository;
 
 import fdi.myproyect.twitter.entidades.UsuarioEntity;
