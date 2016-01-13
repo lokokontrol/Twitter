@@ -1,10 +1,5 @@
 package fdi.myproyect.twitter.controladores;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,27 +19,12 @@ public class UsuarioController {
 	public UsuarioController(UsuarioSA servicio)
 	{
 		this.servicioUsuario = servicio;
-		
 	}
 		
 	@RequestMapping(value="/", method = RequestMethod.POST)
 	String login(UsuarioEntity usuario){
 		
-		 List<UsuarioEntity> arrayUsu = servicioUsuario.getAllUsuario();
-			
-			Iterator<UsuarioEntity> it = arrayUsu.iterator();
-		//	boolean encontrado =false;
-			while(it.hasNext()){
-				UsuarioEntity usuarioAux = it.next();
-				
-				if (usuario.getUsername().equals(usuarioAux.getUsername()))
-					if(usuario.getPassword().equals(usuarioAux.getPassword())){
-						usuarioAux.setLogin(true);
-						servicioUsuario.modificarUsuarioLogin(usuarioAux);
-						//encontrado = true;
-					}
-			
-			}
+		 	servicioUsuario.loguearse(usuario);
 			
 			return "redirect:/paginaTwitter";
 	}
@@ -54,50 +34,25 @@ public class UsuarioController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() {
 		
-		Map<String, Object> model = new HashMap<String, Object>();
-		
-		model.put("usuarios", servicioUsuario.getAllUsuario());
-		
-		
-		ModelAndView view = new ModelAndView("home", model);
-		
-		
-			
-		return view;
-			
-		
+		return servicioUsuario.mostrarUsuario();
+
 	}
 	
 	@RequestMapping(value = "/desconectar", method = RequestMethod.POST)
 	public String desconectar(UsuarioEntity usuario) {	
-	
-
-       List<UsuarioEntity> arrayUsu = servicioUsuario.getAllUsuario();
 		
-		Iterator<UsuarioEntity> it = arrayUsu.iterator();
-		
-		while(it.hasNext()){
-			UsuarioEntity usuarioAux = it.next();
-			System.out.println(usuarioAux.getUsername());
-			System.out.println(usuarioAux.getLogin());
-			if(usuarioAux.getLogin() == true){
-				usuarioAux.setLogin(false);
-				servicioUsuario.modificarUsuarioLogin(usuarioAux);
-			}
-		}
-		
+        servicioUsuario.desconectar(usuario);
 		
 		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/registrar", method = RequestMethod.POST)
 	public String registrar(UsuarioEntity usuario) {	
-		usuario.setLogin(true);
+		
 		servicioUsuario.addUsuario(usuario);
 		
 		return "redirect:/paginaTwitter";
-		
-		
+
 	}
 	
 
