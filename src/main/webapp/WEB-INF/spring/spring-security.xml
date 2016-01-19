@@ -21,8 +21,8 @@
 		<intercept-url pattern="/" access="permitAll" />
 		<intercept-url pattern="/user" access="permitAll" />
 		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/registrar" access="isAuthenticated()" />
-		<intercept-url pattern="/desconectar" access="isAuthenticated()" />
+		<intercept-url pattern="/registrar" access="permitAll" />
+		<intercept-url pattern="/desconectar" access="permitAll" />
 		<intercept-url pattern="/paginaTwitter" access="isAuthenticated()" />
 		
 		<intercept-url pattern="/**" access="ROLE_USER" />
@@ -30,7 +30,7 @@
 
 	
 		
-		<form-login login-processing-url="/registrar" login-page="/home"
+		<form-login login-processing-url="/login" login-page="/home"
 			username-parameter="username" password-parameter="password"
 			default-target-url="/paginaTwitter" authentication-failure-url="/login?auth=error" />
 		<logout logout-url="/desconectar" logout-success-url="/"  />		

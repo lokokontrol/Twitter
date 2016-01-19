@@ -52,8 +52,7 @@ public class TwitterRepositorio {
 	 
 	 @SuppressWarnings("unchecked")
 	 	public List<TweetEntity> getAllTweetsByUser(int id){
-		 
-		
+		 		
 		  Query query = em.createQuery("SELECT c FROM TweetEntity c where c.usuario.id =" + id);
 		
 		 return  listaTweets = query.getResultList();

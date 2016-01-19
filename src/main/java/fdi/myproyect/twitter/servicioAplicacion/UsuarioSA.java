@@ -8,6 +8,9 @@ import java.util.Map;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +19,7 @@ import fdi.myproyect.twitter.repositorios.UsuarioRepositorio;
 
 @Service
 @Transactional
-public class UsuarioSA {
+public class UsuarioSA implements UserDetailsService {
 	
 	UsuarioRepositorio repositorio;
 	
@@ -83,6 +86,13 @@ public class UsuarioSA {
 					repositorio.modificarUsuarioLogin(usuarioAux);
 				}
 			}
+	}
+
+	// para acceder a la bbdd lo hace solo security
+	@Override
+	public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
